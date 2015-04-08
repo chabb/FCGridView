@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FCDummyTableView.h
 //  FCGridViewDemo
 //
 //  Created by François Chabbey on 07.04.15.
@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GridViewController.h"
 
-@interface SecondViewController : GridViewController
-@property (nonatomic,strong) NSArray *gridState;
-
+@interface FCDummyTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 
 @end
-

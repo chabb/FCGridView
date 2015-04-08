@@ -48,7 +48,7 @@
             return;
         }
         NSInteger indexToRemove = arc4random() % cells.count;
-            NSLog(@"will remove %li ON %li",(long)indexToRemove,cells.count);
+        NSLog(@"will remove %li ON %li",(long)indexToRemove,cells.count);
         NSIndexPath *ip = [NSIndexPath indexPathForRow:indexToRemove inSection:row];
         [cells removeObjectAtIndex:indexToRemove];
         self.gridState[row] = cells;

@@ -15,12 +15,12 @@
 		73E8085E1AD3B82A00EA4BEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E8085D1AD3B82A00EA4BEA /* Images.xcassets */; };
 		73E808611AD3B82A00EA4BEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E8085F1AD3B82A00EA4BEA /* LaunchScreen.xib */; };
 		73E8086D1AD3B82A00EA4BEA /* FCGridViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E8086C1AD3B82A00EA4BEA /* FCGridViewDemoTests.m */; };
-		73E808781AD3B84200EA4BEA /* FCGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E808771AD3B84200EA4BEA /* FCGridView.m */; };
 		73E8087B1AD3B9CA00EA4BEA /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E8087A1AD3B9CA00EA4BEA /* GridViewController.m */; };
 		73E8087E1AD3BA3600EA4BEA /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E8087D1AD3BA3600EA4BEA /* UIColor+RandomColor.m */; };
 		73E808891AD5059900EA4BEA /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E808881AD5059900EA4BEA /* ThirdViewController.m */; };
 		73E8088C1AD51E0F00EA4BEA /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E8088B1AD51E0F00EA4BEA /* FourthViewController.m */; };
 		73E8088F1AD52B0B00EA4BEA /* FCDummyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E8088E1AD52B0B00EA4BEA /* FCDummyTableView.m */; };
+		73E808921AD52BD800EA4BEA /* FCGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E808911AD52BD800EA4BEA /* FCGridView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,6 @@
 		73E808661AD3B82A00EA4BEA /* FCGridViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FCGridViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E8086B1AD3B82A00EA4BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E8086C1AD3B82A00EA4BEA /* FCGridViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCGridViewDemoTests.m; sourceTree = "<group>"; };
-		73E808761AD3B84200EA4BEA /* FCGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCGridView.h; path = ../../../ANCSClient/GridViewController/GridViewController/FCGridView.h; sourceTree = "<group>"; };
-		73E808771AD3B84200EA4BEA /* FCGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCGridView.m; path = ../../../ANCSClient/GridViewController/GridViewController/FCGridView.m; sourceTree = "<group>"; };
 		73E808791AD3B9C500EA4BEA /* GridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GridViewController.h; path = ../../../ANCSClient/GridViewController/GridViewController/GridViewController.h; sourceTree = "<group>"; };
 		73E8087A1AD3B9CA00EA4BEA /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridViewController.m; path = ../../../ANCSClient/GridViewController/GridViewController/GridViewController.m; sourceTree = "<group>"; };
 		73E8087C1AD3BA3600EA4BEA /* UIColor+RandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
@@ -61,6 +59,8 @@
 		73E8088B1AD51E0F00EA4BEA /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 		73E8088D1AD52B0B00EA4BEA /* FCDummyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCDummyTableView.h; sourceTree = "<group>"; };
 		73E8088E1AD52B0B00EA4BEA /* FCDummyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCDummyTableView.m; sourceTree = "<group>"; };
+		73E808901AD52BD800EA4BEA /* FCGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCGridView.h; sourceTree = "<group>"; };
+		73E808911AD52BD800EA4BEA /* FCGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCGridView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +102,10 @@
 		73E8084C1AD3B82A00EA4BEA /* FCGridViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				73E808761AD3B84200EA4BEA /* FCGridView.h */,
 				73E8088D1AD52B0B00EA4BEA /* FCDummyTableView.h */,
 				73E8088E1AD52B0B00EA4BEA /* FCDummyTableView.m */,
-				73E808771AD3B84200EA4BEA /* FCGridView.m */,
+				73E808901AD52BD800EA4BEA /* FCGridView.h */,
+				73E808911AD52BD800EA4BEA /* FCGridView.m */,
 				73E808791AD3B9C500EA4BEA /* GridViewController.h */,
 				73E8087A1AD3B9CA00EA4BEA /* GridViewController.m */,
 				73E8087C1AD3BA3600EA4BEA /* UIColor+RandomColor.h */,
@@ -256,10 +256,10 @@
 			files = (
 				73E808591AD3B82A00EA4BEA /* SecondViewController.m in Sources */,
 				73E808531AD3B82A00EA4BEA /* AppDelegate.m in Sources */,
-				73E808781AD3B84200EA4BEA /* FCGridView.m in Sources */,
 				73E808561AD3B82A00EA4BEA /* FirstViewController.m in Sources */,
 				73E8087E1AD3BA3600EA4BEA /* UIColor+RandomColor.m in Sources */,
 				73E8088F1AD52B0B00EA4BEA /* FCDummyTableView.m in Sources */,
+				73E808921AD52BD800EA4BEA /* FCGridView.m in Sources */,
 				73E8088C1AD51E0F00EA4BEA /* FourthViewController.m in Sources */,
 				73E808891AD5059900EA4BEA /* ThirdViewController.m in Sources */,
 				73E8087B1AD3B9CA00EA4BEA /* GridViewController.m in Sources */,

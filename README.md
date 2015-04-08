@@ -25,7 +25,7 @@ As all layout happens in layoutSubviews, rotation are handled automatically. Fur
 
 Take a look at the header file for detailed documentation.
 
-**A cell is represented via the NSIndexPath. There is a small mismatch, as indexpath section corresponds to a row, and row correspond to a cell position in a row**
+**A cell is represented via the NSIndexPath. There is a small mismatch, as indexpath section corresponds to a row, and row correspond to a cell position in a row. A category on indexPath will fix this mismatch**
 
 
 ##Example
@@ -102,8 +102,11 @@ A sample project is included.
 ##TODO 
 
 Add a specific gutter for elements inside section.
+
 Add gutter for specific orientation
+
 Write a category for NSIndexPath in order to make things clearer
+
 Add an updateLayout method that works everytime
 
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 François Chabbey. All rights reserved.
 //
 
-#import "GridViewController.h"
+#import  "GridViewController.h"
 
 @interface ThirdViewController : GridViewController
 @property (nonatomic,strong) NSMutableArray *gridState;

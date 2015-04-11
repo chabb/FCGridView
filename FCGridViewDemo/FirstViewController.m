@@ -8,6 +8,9 @@
 
 #import "FirstViewController.h"
 
+#define __ANIMATED__ YES
+
+
 @interface FirstViewController ()
 
 @end
@@ -44,7 +47,7 @@
         NSMutableArray *cells = [self.gridState[row] mutableCopy];
         if (cells.count == 0) {
             [self.gridState removeObjectAtIndex:1];
-            [self.gridView deleteSection:1];
+            [self.gridView deleteSection:1 animated:__ANIMATED__];
             return;
         }
         NSInteger indexToRemove = arc4random() % cells.count;
@@ -52,14 +55,14 @@
         NSIndexPath *ip = [NSIndexPath indexPathForRow:indexToRemove inSection:row];
         [cells removeObjectAtIndex:indexToRemove];
         self.gridState[row] = cells;
-        [self.gridView deleteElementAtIndexPath:ip];
+        [self.gridView deleteElementAtIndexPath:ip animated:__ANIMATED__];
         return;
     }
     // update structure
     NSInteger index =   arc4random() % (self.gridState.count-1); // always keep last row
     NSLog(@"will remove %li",(long)index);
     [self.gridState removeObjectAtIndex:index];
-    [self.gridView deleteSection:index];
+    [self.gridView deleteSection:index animated:__ANIMATED__];
 }
 
 

@@ -178,10 +178,22 @@
     [self setNeedsLayout];
 }
 
--(void)deleteElementAtIndexPath:(NSIndexPath *)indexPath {
+-(void)deleteElementAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
     [self collectPercentForElementsInAllSection];
     NSInteger section =indexPath.section;
     NSInteger cell = indexPath.row;
+    
+    if (!animated) {
+        UIView *sectionView = [sectionsViews pointerAtIndex:section];
+        NSPointerArray *elementsView  = [views objectForKey:[NSValue valueWithNonretainedObject:sectionView]];
+        elementToBeRemoved = [elementsView pointerAtIndex:cell];
+        [elementToBeRemoved removeFromSuperview];
+        [elementsView removePointerAtIndex:cell];
+        [self setNeedsLayout];
+        [self layoutIfNeeded];
+        return;
+    }
+    
     NSMutableArray *_sectionsPercent = [NSMutableArray arrayWithArray:elementsPercent[section]];
     NSArray *originalSectionPercentArray = [NSArray arrayWithArray:_sectionsPercent];
     [_sectionsPercent insertObject:[NSNumber numberWithFloat:0.0]  atIndex:cell];
@@ -196,21 +208,16 @@
     } completion:^(BOOL finished) {
         elementsPercent[section] = originalSectionPercentArray;
         [elementsView  removePointerAtIndex:cell];
-        //[elementToBeRemoved removeFromSuperview];
+        [elementToBeRemoved removeFromSuperview];
     }];
     
 }
--(void)insertElementAtIndexPath:(NSIndexPath *)indexPath {
+-(void)insertElementAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated{
     NSInteger section =indexPath.section;
     NSInteger cell = indexPath.row;
     //check if indexPath is alright;
     NSAssert(section < _cachedSections,@"Section %li  must be less than number of section %li",section,_cachedSections);
     
-    // This is useless
-    //NSMutableArray *_sectionsPercent = [NSMutableArray arrayWithArray:elementsPercent[section]];
-    //NSArray *originalSectionPercentArray = [NSArray arrayWithArray:_sectionsPercent];
-    //[_sectionsPercent insertObject:[NSNumber numberWithFloat:0.0]  atIndex:cell];
-    //elementsPercent[section] = _sectionsPercent;
     NSLog(@"Start inserting");
     UIView *sectionView = [sectionsViews pointerAtIndex:section];
     CGRect sectionFrame = sectionView.frame;
@@ -236,6 +243,13 @@
     [elementsView insertPointer:(__bridge void *)(newView) atIndex:cell];
     [self collectPercentForElementsInAllSection];
     
+    
+    if (!animated) {
+        [self setNeedsLayout];
+        [self layoutIfNeeded];
+        return;
+    }
+    
     [self performAnimations:^{
         [self setNeedsLayout];
         [self layoutIfNeeded];
@@ -246,10 +260,28 @@
 }
 
 
--(void)deleteSection:(NSInteger)section {
+-(void)deleteSection:(NSInteger)section animated:(BOOL)animated{
     NSAssert(section<sectionsViews.count,@"Section to delete is greater than number of sections");
     _cachedSections = _cachedSections -1;
     _cachedTotalGutterSpace = [self computeGutters];
+    sectionToBeRemoved = [sectionsViews pointerAtIndex:section];
+    void (^updateBlock)(BOOL) = ^void(BOOL animated){
+        NSValue *key = [NSValue valueWithNonretainedObject:sectionToBeRemoved];
+        [views removeObjectForKey:key];
+        [sectionToBeRemoved removeFromSuperview];
+        [sectionsViews removePointerAtIndex:section];
+        [self collectPercentForSections];
+        [self collectPercentForElementsInAllSection];
+        [self layoutSubviews];
+        return;
+
+    };
+    
+    if (!animated) {
+        updateBlock(YES);
+        return;
+    }
+    
     [self collectPercentForSections];
     NSMutableArray *_sectionsPercent = [NSMutableArray arrayWithArray:sectionsPercent];
     [_sectionsPercent insertObject:[NSNumber numberWithFloat:0.0] atIndex:section];
@@ -257,33 +289,26 @@
 #ifdef __DEBUG__
     NSLog(@"COUNT %lu",(unsigned long)sectionsPercent.count);
 #endif
-    sectionToBeRemoved = [sectionsViews pointerAtIndex:section];
+    
     
     [self performAnimations:^{
         [self setNeedsLayout];
         [self layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        //pack dico
-        NSValue *key = [NSValue valueWithNonretainedObject:sectionToBeRemoved];
-        [views removeObjectForKey:key];
-        //
-        [sectionToBeRemoved removeFromSuperview];
-        //pack sections
-        [sectionsViews removePointerAtIndex:section]; // fout la merde
-        
-        // Try to make a copy for later usage instead of calling these methods
-        [self collectPercentForSections];
-        [self collectPercentForElementsInAllSection];
-        [self layoutSubviews];
-    }];
+    } completion:updateBlock];
 }
 
--(void)updateLayout {
+-(void)updateLayoutAnimated:(BOOL)animated {
+    
+   void (^updateBlock)(void) = ^void(void){
+       [self setNeedsLayout];
+       [self layoutIfNeeded];
+    };
     [self collectPercentForElementsInAllSection];
-    [self performAnimations:^{
-        [self setNeedsLayout];
-        [self layoutIfNeeded];
-    } completion:nil];
+    if (!animated) {
+        updateBlock();
+        return;
+    }
+    [self performAnimations:updateBlock completion:nil];
 }
 
 

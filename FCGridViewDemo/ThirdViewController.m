@@ -49,7 +49,7 @@
     
     
     NSIndexPath *ip = [NSIndexPath indexPathForRow:cell inSection:row];
-    [self.gridView insertElementAtIndexPath:ip];
+    [self.gridView insertElementAtIndexPath:ip animated:YES];
 }
 
 -(NSInteger)numberOfSectionsInGridView:(FCGridView *)gridView {

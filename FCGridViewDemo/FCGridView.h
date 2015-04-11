@@ -77,24 +77,24 @@
  CORRECT VALUES, OR THE OVERALL LAYOUT WILL BREAK.
 
  */
--(void)deleteSection:(NSInteger)section;
+-(void)deleteSection:(NSInteger)section animated:(BOOL)animated;
 /**
  Delete an element from a section, and remove it from the section.
  Deletion is animated. YOU MUST ENSURE THAT DATASOURCE AND DELEGATE METHODDS PROVIDE
  CORRECT VALUES, OR THE OVERALL LAYOUT WILL BREAK.
 */
--(void)deleteElementAtIndexPath:(NSIndexPath *)indexPath;
+-(void)deleteElementAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
 /**
  Add an element to a section.
  Insertion is animate. YOU MUST ENSURE THAT DATASOURCE AND DELEGATE METHODDS PROVIDE
  CORRECT VALUES, OR THE OVERALL LAYOUT WILL BREAK.
 */
--(void)insertElementAtIndexPath:(NSIndexPath *)indexPath;
+-(void)insertElementAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
 
 /** update the layout
 CALL THIS METHOD ONLY IF THE GRID HAS THE SAME NUMBER OF ROW AND CELLS PER ROW
 */
--(void)updateLayout;
+-(void)updateLayoutAnimated:(BOOL)animated;
 /**
  Returns the element view for a given indexpath. An assertion is raised if indexpath is incorrect
 */

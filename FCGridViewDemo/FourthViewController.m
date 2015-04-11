@@ -31,7 +31,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.gridState = [ @[@[@0.7,@0.25,@0.05],@[@0.1,@0.9],@[@0.3333,@0.3333,@0.3333],@[@0.1,@0.85,@0.05],@[@0.5,@0.5]] mutableCopy];
-        [self.gridView updateLayout];
+        [self.gridView updateLayoutAnimated:NO];
     });
 }
 

@@ -11,7 +11,6 @@
 #import "UIColor+RandomColor.h"
 
 @implementation ThirdViewController
-
 {
     int step;
 }
@@ -32,8 +31,7 @@
     NSMutableArray *cells = self.gridState[row];
     int cell = arc4random_uniform((unsigned int)cells.count);
     // remove that after
-   
-    
+
     cells = [self.gridState[row] mutableCopy];
     NSInteger dividor= cells.count;
     float value = 0.2 + ( (float)  arc4random_uniform(20)/100.0); // randomize a bit
@@ -46,7 +44,6 @@
     [newArray insertObject:[NSNumber numberWithFloat:value] atIndex:cell];
     self.gridState[row] = newArray;
     // update values of old Elements
-    
     
     NSIndexPath *ip = [NSIndexPath indexPathForRow:cell inSection:row];
     [self.gridView insertElementAtIndexPath:ip animated:YES];
@@ -67,8 +64,6 @@
 -(float)percentForSection:(NSInteger)section {
     return 1.0/self.gridState.count;
 }
-
-
 -(UIView *)gridView:(FCGridView *)gridView viewForElementAtIndexPath:(NSIndexPath *)indexPath {
     UIView *view = [[UIView alloc] init];
     [view setBackgroundColor:[UIColor randomColor]];

@@ -10,15 +10,12 @@
 
 @implementation FCDummyTableView
 
-
 -(instancetype)init {
     self = [super init];
     self.delegate = self;
     self.dataSource = self;
     return self;
 }
-
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 4;
 };
@@ -33,5 +30,4 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
-
 @end

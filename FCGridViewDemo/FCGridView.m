@@ -19,12 +19,9 @@
     NSMutableArray* elementsPercent;
     NSMutableDictionary *views; // dictionnary made of NSPointerArray with [NSValue ..valueWithNonRetainedObject..]
     NSPointerArray* sectionsViews;
-    
     // State variable to ensure proper layout
     __weak UIView *sectionToBeRemoved;
     __weak UIView *elementToBeRemoved;
-    
-    
     // TODO add a bool struct to cache all ..respondTo.. state
 }
 
@@ -310,9 +307,6 @@
     }
     [self performAnimations:updateBlock completion:nil];
 }
-
-
-
 -(UIView *)viewForIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
     NSAssert(section<_cachedSections,@"Section %li is higher that number of sections %li",(long)section,(long)_cachedSections );
@@ -332,6 +326,4 @@
     [UIView animateWithDuration:self.animationSpeed delay:self.animationDelay options:self.animationOptions animations:animations completion:completion];
     
 }
-
-
 @end

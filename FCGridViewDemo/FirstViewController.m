@@ -20,9 +20,7 @@
 
 -(void)awakeFromNib {
     self.gridState = [ @[@[@0.3,@0.3,@0.4],@[@0.2,@0.2,@0.2,@0.2,@0.2],@[@0.7,@0.3],@[@0.2,@0.2,@0.2,@0.1,@0.3],@[@0.8,@0.15],@[@0.2,@0.02,@0.1,@0.1,@0.05,@0.4,@0.1]] mutableCopy];
-
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -64,8 +62,6 @@
     [self.gridState removeObjectAtIndex:index];
     [self.gridView deleteSection:index animated:__ANIMATED__];
 }
-
-
 -(NSInteger)numberOfSectionsInGridView:(FCGridView *)gridView {
     return self.gridState.count;
 }

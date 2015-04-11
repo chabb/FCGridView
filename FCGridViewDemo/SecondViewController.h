@@ -12,6 +12,5 @@
 @interface SecondViewController : GridViewController
 @property (nonatomic,strong) NSArray *gridState;
 
-
 @end
 

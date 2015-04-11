@@ -8,13 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 /**
- 
- 
- 
- 
  FCGridView is NOT THREAD-SAFE, all insertions/deletions calls must be made from the same thread
  
  Note that when you remove/insert elements or sections, it is your code responsibility to provide good percentage, FCGridView will not make any assumptions about what you want to achieve.

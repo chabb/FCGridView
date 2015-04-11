@@ -27,7 +27,6 @@
     [self.gridView sectionAtIndex:1].backgroundColor = [UIColor blackColor];
     self.gridView.backgroundColor = [UIColor lightGrayColor];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -53,7 +52,4 @@
     }
     
 }
-
-
-
 @end
